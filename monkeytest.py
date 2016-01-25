@@ -72,3 +72,7 @@ Eat bananas, drink coffee & enjoy!
             >/
            (.oO
 ''')
+# ASCII-art: used part of text-image @ http://www.ascii-art.de/ascii/mno/monkey.txt
+# it seems that its original author is Mic Barendsz (mic aka miK)
+# text-image is a bit old (1999) so I couldn't find a way to communicate with author
+# if You're reading this and You're an author -- feel free to write me
