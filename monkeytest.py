@@ -47,7 +47,7 @@ result = ('\n\nWritten {} MB in {:.4f} s\nWrite speed is  {:.2f} MB/s'
              max = WRITE_BLOCK_KB/(1024*min(took)),
              min = WRITE_BLOCK_KB/(1024*max(took)) ))
 print(result)
-print('''Brought to you by coding monkeys. Eat bananas, drink coffee & enjoy!
+print(r'''Brought to you by coding monkeys. Eat bananas, drink coffee & enjoy!
                  _
                ,//)
                ) /
