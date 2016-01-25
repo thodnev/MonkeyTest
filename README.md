@@ -1,4 +1,5 @@
 # MonkeyTest
+
 MonkeyTest -- test your hard drive write speed in Python
 A simplistic script to show that such system programming
 tasks are possible and convenient to be solved in Python
@@ -14,3 +15,5 @@ the script doesn't waste your drive
 
 Runs on both Python3 and 2, despite that I prefer 3
 Has been tested on 3.5 and 2.7 under ArchLinux
+
+![monkeytest](https://cloud.githubusercontent.com/assets/16870636/12540482/92fe3856-c312-11e5-8ec6-090c8ef31148.png)
