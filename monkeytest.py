@@ -18,12 +18,19 @@ Has been tested on 3.5 and 2.7 under ArchLinux
 from __future__ import division, print_function	# for compatability with py2
 
 # change the constants below according to your needs
-WRITE_MB = 128	        # total MBs written during test
+WRITE_MB = 12	        # total MBs written during test
 WRITE_BLOCK_KB = 1024   # KBs in each write block
 FILE = '/home/thd/test' # file must be at drive under test
 
-from time import time
 import os, sys
+try:                    # if Python >= 3.3 use new high-res counter
+    from time import perf_counter as time
+except ImportError:     # else select highest available resolution counter
+    if sys.platform[:3] == 'win':
+        from time import clock as time
+    else:
+        from time import time
+    
 
 f = os.open(FILE, os.O_CREAT|os.O_WRONLY, 0o777) # low-level I/O
 blocks = int(WRITE_MB*1024/WRITE_BLOCK_KB)
@@ -47,7 +54,8 @@ result = ('\n\nWritten {} MB in {:.4f} s\nWrite speed is  {:.2f} MB/s'
              max = WRITE_BLOCK_KB/(1024*min(took)),
              min = WRITE_BLOCK_KB/(1024*max(took)) ))
 print(result)
-print(r'''Brought to you by coding monkeys. Eat bananas, drink coffee & enjoy!
+print(r'''Brought to you by coding monkeys.
+Eat bananas, drink coffee & enjoy!
                  _
                ,//)
                ) /
