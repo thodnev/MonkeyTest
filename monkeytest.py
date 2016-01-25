@@ -18,7 +18,7 @@ Has been tested on 3.5 and 2.7 under ArchLinux
 from __future__ import division, print_function	# for compatability with py2
 
 # change the constants below according to your needs
-WRITE_MB = 12	        # total MBs written during test
+WRITE_MB = 128	        # total MBs written during test
 WRITE_BLOCK_KB = 1024   # KBs in each write block
 FILE = '/home/thd/test' # file must be at drive under test
 
