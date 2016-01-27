@@ -73,7 +73,7 @@ def read_test(file, block_size, blocks_count, show_progress=True):
     shuffle(offsets)
 
     took = []
-    for i, offset in enumerate(offsets):
+    for i, offset in enumerate(offsets, 1):
         if show_progress and i % int(WRITE_BLOCK_KB*1024/READ_BLOCK_B) == 0:
             # read is faster than write, so try to equalize print period
             sys.stdout.write('\rReading: {:.2f} %'.format(
@@ -94,6 +94,7 @@ wr_blocks = int(WRITE_MB*1024/WRITE_BLOCK_KB)
 rd_blocks = int(WRITE_MB*1024*1024/READ_BLOCK_B)
 
 write_results = write_test(FILE, 1024*WRITE_BLOCK_KB, wr_blocks)
+print()
 read_results = read_test(FILE, READ_BLOCK_B, rd_blocks)
     
 os.remove(FILE)
