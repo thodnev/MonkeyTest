@@ -22,6 +22,29 @@ from random import shuffle
 import argparse
 import json
 
+ASCIIART = r'''Brought to you by coding monkeys.
+Eat bananas, drink coffee & enjoy!
+                 _
+               ,//)
+               ) /
+              / /
+        _,^^,/ /
+       (G,66<_/
+       _/\_,_)    _
+      / _    \  ,' )
+     / /"\    \/  ,_\
+  __(,/   >  e ) / (_\.oO
+  \_ /   (   -,_/    \_/
+    U     \_, _)
+           (  /
+            >/
+           (.oO
+'''
+# ASCII-art: used part of text-image @ http://www.ascii-art.de/ascii/mno/monkey.txt
+# it seems that its original author is Mic Barendsz (mic aka miK)
+# text-image is a bit old (1999) so I couldn't find a way to communicate with author
+# if You're reading this and You're an author -- feel free to write me
+
 try:  # if Python >= 3.3 use new high-res counter
     from time import perf_counter as time
 except ImportError:  # else select highest available resolution counter
@@ -140,28 +163,7 @@ class Benchmark:
             max=self.read_block_b / (1024 * 1024 * min(self.read_results)),
             min=self.read_block_b / (1024 * 1024 * max(self.read_results))))
         print(result)
-        print(r'''Brought to you by coding monkeys.
-            Eat bananas, drink coffee & enjoy!
-                             _
-                           ,//)
-                           ) /
-                          / /
-                    _,^^,/ /
-                   (G,66<_/
-                   _/\_,_)    _
-                  / _    \  ,' )
-                 / /"\    \/  ,_\
-              __(,/   >  e ) / (_\.oO
-              \_ /   (   -,_/    \_/
-                U     \_, _)
-                       (  /
-                        >/
-                       (.oO
-            ''')
-        # ASCII-art: used part of text-image @ http://www.ascii-art.de/ascii/mno/monkey.txt
-        # it seems that its original author is Mic Barendsz (mic aka miK)
-        # text-image is a bit old (1999) so I couldn't find a way to communicate with author
-        # if You're reading this and You're an author -- feel free to write me
+        print(ASCIIART)
 
 
     def get_json_result(self,output_file):
