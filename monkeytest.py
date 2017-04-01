@@ -1,19 +1,18 @@
+#!/usr/bin/env python
 '''
 MonkeyTest -- test your hard drive read-write speed in Python
 A simplistic script to show that such system programming
 tasks are possible and convenient to be solved in Python
 
-I haven't done any command-line arguments parsing, so
-you should configure it using the constants below.
-
 The file is being created, then written with random data, randomly read
 and deleted, so the script doesn't waste your drive
 
-(!) Be sure, that the file you point to is not smthng
+(!) Be sure, that the file you point to is not something
     you need, cause it'll be overwritten during test
 
 Runs on both Python3 and 2, despite that I prefer 3
 Has been tested on 3.5 and 2.7 under ArchLinux
+Has been tested on 3.5.2 under Ubuntu Xenial
 '''
 from __future__ import division, print_function  # for compatability with py2
 
@@ -167,13 +166,13 @@ class Benchmark:
 
 
     def get_json_result(self,output_file):
-        results_json = []
-        results_json.append('{"Written MB":' + str(self.write_mb) + '}')
-        results_json.append('{"Write time (sec)":' + str(round(sum(self.write_results),2)) + '}')
-        results_json.append('{"Write speed in MB/s":' + str(round(self.write_mb / sum(self.write_results),2)) + '}')
-        results_json.append('{"Read blocks":' + str(len(self.read_results)) + '}')
-        results_json.append('{"Read time (sec)":' + str(round(sum(self.read_results),2)) + '}')
-        results_json.append('{"Read speed in MB/s":' + str(round(self.write_mb / sum(self.read_results),2)) + '}')
+        results_json = {}
+        results_json["Written MB"] = self.write_mb
+        results_json["Write time (sec)"] = round(sum(self.write_results),2)
+        results_json["Write speed in MB/s"] = round(self.write_mb / sum(self.write_results),2)
+        results_json["Read blocks"] = len(self.read_results)
+        results_json["Read time (sec)"] = round(sum(self.read_results),2)
+        results_json["Read speed in MB/s"] = round(self.write_mb / sum(self.read_results),2)
         with open(output_file,'w') as f:
             json.dump(results_json,f)
 
