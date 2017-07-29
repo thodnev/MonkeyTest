@@ -63,16 +63,19 @@ def get_args():
     parser.add_argument('-s', '--size',
                         required=False,
                         action='store',
+                        type=int,
                         default=128,
                         help='Total MB to write')
     parser.add_argument('-w', '--write-block-size',
                         required=False,
                         action='store',
+                        type=int,
                         default=1024,
                         help='The block size for writing in bytes')
     parser.add_argument('-r', '--read-block-size',
                         required=False,
                         action='store',
+                        type=int,
                         default=512,
                         help='The block size for reading in bytes')
     parser.add_argument('-j', '--json',
